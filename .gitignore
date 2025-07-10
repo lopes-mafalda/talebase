@@ -49,3 +49,6 @@ Icon?
 
 # Spring boot
 .spring-boot-devtools.properties
+
+#Properties
+application.properties
