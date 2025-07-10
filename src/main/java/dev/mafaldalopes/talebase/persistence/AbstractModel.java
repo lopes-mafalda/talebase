@@ -1,12 +1,27 @@
 package dev.mafaldalopes.talebase.persistence;
 
+import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import java.util.Date;
 
+@MappedSuperclass
 public class AbstractModel implements Model{
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
+
+    @Version
     private Integer version;
+
+    @CreationTimestamp
+    @Column(name = "creation_time")
     private Date creationTime;
+
+    @UpdateTimestamp
+    @Column(name = "update_time")
     private Date updateTime;
 
     @Override
