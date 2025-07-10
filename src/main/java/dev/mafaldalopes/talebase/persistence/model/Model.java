@@ -1,4 +1,4 @@
-package dev.mafaldalopes.talebase.persistence;
+package dev.mafaldalopes.talebase.persistence.model;
 
 import java.util.Date;
 
