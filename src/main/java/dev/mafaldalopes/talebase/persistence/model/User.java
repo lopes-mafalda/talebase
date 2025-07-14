@@ -26,6 +26,9 @@ public class User extends AbstractModel {
     )
     private String lastName;
 
+    @Column(nullable = false)
+    private Integer age;
+
     @Column(
             nullable = false,
             unique = true
@@ -55,6 +58,7 @@ public class User extends AbstractModel {
             inverseJoinColumns = @JoinColumn(name = "followed_id"))
     private List<User> following;
 
+    public static final User NO_USER = new User();
 
     public String getUsername() {
         return username;
@@ -78,6 +82,14 @@ public class User extends AbstractModel {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
     }
 
     public String getEmail() {

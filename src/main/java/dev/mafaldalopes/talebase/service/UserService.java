@@ -1,10 +1,10 @@
-package dev.mafaldalopes.talebase.persistence.dao;
+package dev.mafaldalopes.talebase.service;
 
 import dev.mafaldalopes.talebase.persistence.model.User;
 
 import java.util.Optional;
 
-public interface UserDao extends Dao<User>{
+public interface UserService extends Service<User> {
 
     Optional<User> findByUsername(String username);
 }

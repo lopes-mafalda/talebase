@@ -6,20 +6,21 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
 
 import java.util.List;
+import java.util.Optional;
 
 public class GenericDao<T> implements Dao<T> {
 
     @PersistenceContext
-    private EntityManager em;
-    private Class<T> modelType;
+    protected EntityManager em;
+    protected Class<T> modelType;
 
     public GenericDao(Class<T> modelType) {
         this.modelType = modelType;
     }
 
     @Override
-    public T findById(Integer id) {
-        return em.find(modelType, id);
+    public Optional<T> findById(Integer id) {
+        return Optional.of(em.find(modelType, id));
     }
 
     @Override
